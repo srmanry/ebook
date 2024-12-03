@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:libararybd/feature/accounts/view/book_uplode_screen.dart';
+import 'package:libararybd/feature/accounts/widgets/profile_card_widget.dart';
+import 'package:libararybd/util/custom_color.dart';
+import 'package:libararybd/util/dimensions.dart';
+import 'package:libararybd/util/styles.dart';
+
+import 'yourbooks_screen.dart';
+
+class ProfileScreenView extends StatelessWidget {
+  const ProfileScreenView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar:  AppBar(
+          centerTitle: true,backgroundColor: appColor,
+          title: const Text("Profile",style: TextStyle(color: Colors.white),),
+        ),
+      body:  Padding(
+        padding: const EdgeInsets.all(Dimensions.defaultSize),
+        child: Column(children: [
+          SizedBox(height: 20,),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: Dimensions.fifTeen),
+            child: const CircleAvatar(backgroundColor: Colors.amberAccent,radius: 35,child: Icon(Icons.person),),
+          ),
+
+          Text("gmail@gmail.com",style: textMedium.copyWith(fontSize: 15),),
+          SizedBox(height: 20,),
+
+          ProfileCardWidget(name: "Publish new Book",onTap: (){ Get.to(BookUplodeScreenView()); },),
+          ProfileCardWidget(name: "View your Books",onTap: (){Get.to(YourBooksScreen());},),
+          ProfileCardWidget(name: "Privacy Policy",),
+          ProfileCardWidget(name: "Contract",),
+          ProfileCardWidget(name: "Help",),
+          ProfileCardWidget(name: "Log out",),
+          Padding(  padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+
+
+
+
+
+               // const Text("View your All Books"),
+              ],
+            ),
+          ),
+          
+
+        ],),
+      ),
+    );
+  }
+}

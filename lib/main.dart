@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'feature/dashbord/dashobord_screen.dart';
-import 'feature/home/home_screen.dart';
+import 'feature/dashbord/view/dashobord_screen.dart';
+import 'feature/home/view/home_screen.dart';
 
 void main() {
   runApp(const MyApp());

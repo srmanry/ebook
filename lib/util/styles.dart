@@ -15,6 +15,7 @@ const textRegular = TextStyle(
 const textMedium = TextStyle(
   fontFamily: 'SFProText',
   fontWeight: FontWeight.w500,
+  fontSize:15
 );
 
 const textSemiBold = TextStyle(

@@ -28,19 +28,17 @@ class BookUplodeScreenView extends StatelessWidget {
             Text("Book cover Photos"),
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.grey[300]
-              ),
+              decoration: BoxDecoration(color: Colors.grey[300]  ),
               height: Dimensions.twoHundredTow,
-            child: Icon(Icons.photo_camera),
+             child: const Icon(Icons.photo_camera),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: Dimensions.defaultSize),
-              child: const CustomTextField(  hinText: "Book Type", suffixIcon: Icon(Icons.arrow_drop_down_outlined),),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: Dimensions.defaultSize),
+              child: CustomTextField(  hinText: "Book Type", suffixIcon: Icon(Icons.arrow_drop_down_outlined),),
             ),
 
 
-            SizedBox(height: Dimensions.twoHundred,),
+            const SizedBox(height: Dimensions.twoHundred,),
             CustomBottom(name: "Publish",bottomColor: appColor,)
           ],
         ),
