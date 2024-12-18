@@ -7,12 +7,11 @@ class ReadScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Book name",style: TextStyle(color: Colors.white),),centerTitle: true,actions: [
+        title: const Text("Book name",style: TextStyle(color: Colors.white),),centerTitle: true,actions: const [
           Icon(Icons.favorite_outline,color: Colors.white,),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.comment,color: Colors.white,),
-          )
+            padding: EdgeInsets.all(8.0),
+            child: Icon(Icons.comment,color: Colors.white,), )
       ],
       ),
     );

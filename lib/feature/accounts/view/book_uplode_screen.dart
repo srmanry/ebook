@@ -10,22 +10,19 @@ class BookUplodeScreenView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Publish your Book "),
-      ),
+      appBar: AppBar(centerTitle: true,title: const Text("Publish your Book "), ),
       body: Padding(
         padding: const EdgeInsets.all(Dimensions.defaultSize),
         child: Column(
           children: [
-            SizedBox(height: Dimensions.fifty,),
+            const SizedBox(height: Dimensions.fifty,),
             const CustomTextField(  hinText: "Book Name", ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: Dimensions.defaultSize),
-              child: const CustomTextField(  hinText: "Writer Name", ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: Dimensions.defaultSize),
+              child: CustomTextField(  hinText: "Writer Name", ),
             ),
            // CustomTextField(  hinText: "Book Name", ),
-            Text("Book cover Photos"),
+            const Text("Book cover Photos"),
             Container(
               width: double.infinity,
               decoration: BoxDecoration(color: Colors.grey[300]  ),

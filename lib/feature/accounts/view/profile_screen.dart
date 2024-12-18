@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 import 'package:libararybd/feature/accounts/view/book_uplode_screen.dart';
 import 'package:libararybd/feature/accounts/widgets/profile_card_widget.dart';
 import 'package:libararybd/util/custom_color.dart';
@@ -22,14 +22,13 @@ class ProfileScreenView extends StatelessWidget {
       body:  Padding(
         padding: const EdgeInsets.all(Dimensions.defaultSize),
         child: Column(children: [
-          SizedBox(height: 20,),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: Dimensions.fifTeen),
-            child: const CircleAvatar(backgroundColor: Colors.amberAccent,radius: 35,child: Icon(Icons.person),),
-          ),
+          const SizedBox(height: 20,),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: Dimensions.fifTeen),
+            child: CircleAvatar(backgroundColor: Colors.amberAccent,radius: 35,child: Icon(Icons.person),), ),
 
           Text("gmail@gmail.com",style: textMedium.copyWith(fontSize: 15),),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
 
           ProfileCardWidget(name: "Publish new Book",onTap: (){ Get.to(BookUplodeScreenView()); },),
           ProfileCardWidget(name: "View your Books",onTap: (){Get.to(YourBooksScreen());},),
