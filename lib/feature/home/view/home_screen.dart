@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:libararybd/util/custom_color.dart';
-import 'package:libararybd/util/styles.dart';
+import 'package:libararybd/core/util/custom_color.dart';
+import 'package:libararybd/core/util/styles.dart';
 
 import 'readbook_screen.dart';
 
@@ -14,6 +13,38 @@ class HomeScreenView extends StatefulWidget {
 }
 
 class _HomeScreenViewState extends State<HomeScreenView> {
+  Widget _bookCover(String url) {
+    return Image.network(
+      url,
+      height: 200,
+      width: double.infinity,
+      fit: BoxFit.fill,
+      loadingBuilder: (context, child, progress) {
+        if (progress == null) return child;
+        return Container(
+          height: 200,
+          width: double.infinity,
+          alignment: Alignment.center,
+          color: Colors.grey.shade200,
+          child: const SizedBox(
+            width: 22,
+            height: 22,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          ),
+        );
+      },
+      errorBuilder: (_, __, ___) {
+        return Container(
+          height: 200,
+          width: double.infinity,
+          alignment: Alignment.center,
+          color: Colors.grey.shade300,
+          child: const Icon(Icons.broken_image, color: Colors.black54),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,7 +120,9 @@ class _HomeScreenViewState extends State<HomeScreenView> {
 
                             child: Column(
                               children: [
-                                Image.network("https://m.media-amazon.com/images/I/91h29Crb4LL._AC_UF1000,1000_QL80_.jpg",height: 200,width: double.infinity,fit: BoxFit.fill,),
+                                _bookCover(
+                                  "https://m.media-amazon.com/images/I/91h29Crb4LL._AC_UF1000,1000_QL80_.jpg",
+                                ),
                                 const Expanded(child: Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 8.0,),
                                   child: Text("Book NameBook NameBook NameBook Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),

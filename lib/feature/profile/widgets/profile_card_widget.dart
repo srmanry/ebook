@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:libararybd/util/dimensions.dart';
-import 'package:libararybd/util/styles.dart';
+import 'package:libararybd/core/util/dimensions.dart';
+import 'package:libararybd/core/util/styles.dart';
 
 class ProfileCardWidget extends StatelessWidget {
   final String name;

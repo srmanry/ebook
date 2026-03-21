@@ -1,79 +1,37 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  final TextEditingController? controller;
-  final String? textFieldName;
-  final String? hinText;
-  final bool? obscureText;
+  final String hinText;
   final Widget? priFixIcon;
   final Widget? suffixIcon;
-  final TextInputType? textInputType;
-  final bool? obscureCharacter;
-  final Color? focusColor;
-  final Widget? outLineBorder;
+  final TextEditingController? controller;
+  final bool obscureText;
+  final TextInputType? keyboardType;
 
   const CustomTextField({
     super.key,
-    this.textFieldName,
-    this.hinText,
+    required this.hinText,
     this.priFixIcon,
     this.suffixIcon,
     this.controller,
-    this.textInputType,
-    this.obscureCharacter,
-    this.outLineBorder,
-    this.focusColor,
-    this.obscureText,
+    this.obscureText = false,
+    this.keyboardType,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 45,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          
-          color: const Color(0xFFF3F3F3),
-         // border: Border.all(color: Colors.red),
-        //color: const Color(0xFFFFFFFF),
-        
-          // boxShadow: const [
-          //   BoxShadow(
-          //       color: Colors.red,
-          //       blurRadius: 1,
-
-          //      // spreadRadius: 1
-          //       ),
-                
-          // ]
+    return TextField(
+      controller: controller,
+      obscureText: obscureText,
+      keyboardType: keyboardType,
+      decoration: InputDecoration(
+        hintText: hinText,
+        prefixIcon: priFixIcon,
+        suffixIcon: suffixIcon,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
         ),
-      child: TextFormField(
-        // obscureText: obscureText,
-        controller: controller,
-        keyboardType: textInputType,
-        decoration: InputDecoration(
-            focusColor: focusColor,
-            // fillColor: Colors.green,
-            //  focusColor: Colors.white,
-            // hoverColor: Colors.white,
-            hintText: hinText,
-            hintStyle: const TextStyle(fontSize: 14),
-            prefixIcon: priFixIcon,
-            suffixIcon: suffixIcon,
-            iconColor: Colors.black,
-            border: InputBorder.none,
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: const BorderSide(
-                color: Color(0xFFFFFFFF),
-                width: 0.0,
-              ),
-            ),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Color(0xFFFFFFFF),
-              ),
-            )),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       ),
     );
   }

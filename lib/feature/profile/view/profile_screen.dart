@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:libararybd/feature/accounts/view/book_uplode_screen.dart';
-import 'package:libararybd/feature/accounts/widgets/profile_card_widget.dart';
-import 'package:libararybd/util/custom_color.dart';
-import 'package:libararybd/util/dimensions.dart';
-import 'package:libararybd/util/styles.dart';
+import 'package:libararybd/feature/profile/view/book_uplode_screen.dart';
+import 'package:libararybd/feature/profile/widgets/profile_card_widget.dart';
+import 'package:libararybd/feature/auth/view/login_screen_veiw.dart';
+import 'package:libararybd/core/util/custom_color.dart';
+import 'package:libararybd/core/util/dimensions.dart';
+import 'package:libararybd/core/util/styles.dart';
 
 import 'yourbooks_screen.dart';
 
@@ -35,7 +36,12 @@ class ProfileScreenView extends StatelessWidget {
           ProfileCardWidget(name: "Privacy Policy",),
           ProfileCardWidget(name: "Contract",),
           ProfileCardWidget(name: "Help",),
-          ProfileCardWidget(name: "Log out",),
+          ProfileCardWidget(
+            name: "Log out",
+            onTap: () {
+              Get.offAll(() => const LoginScreenView());
+            },
+          ),
           Padding(  padding: EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

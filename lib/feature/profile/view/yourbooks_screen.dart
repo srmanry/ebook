@@ -1,9 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:libararybd/util/custom_color.dart';
-import 'package:libararybd/util/dimensions.dart';
+import 'package:libararybd/core/util/custom_color.dart';
+import 'package:libararybd/core/util/dimensions.dart';
 
 class YourBooksScreen extends StatelessWidget {
   const YourBooksScreen({super.key});
+
+  Widget _bookCover(String url) {
+    return Image.network(
+      url,
+      height: 80,
+      fit: BoxFit.cover,
+      loadingBuilder: (context, child, progress) {
+        if (progress == null) return child;
+        return const Center(child: SizedBox(
+          width: 18,
+          height: 18,
+          child: CircularProgressIndicator(strokeWidth: 2),
+        ));
+      },
+      errorBuilder: (_, __, ___) {
+        return Container(
+          color: Colors.grey.shade300,
+          alignment: Alignment.center,
+          child: const Icon(Icons.broken_image, color: Colors.black54),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +50,14 @@ class YourBooksScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(Dimensions.defaultSize),),
               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(height: 100,width: 75,color: Colors.amberAccent,
-
-                    child: Image.network("https://namyapress.com/wp-content/uploads/2023/03/415-C-Programming-PB-scaled.jpg",height: 80,fit: BoxFit.cover,),),
+                  Container(
+                    height: 100,
+                    width: 75,
+                    color: Colors.amberAccent,
+                    child: _bookCover(
+                      "https://namyapress.com/wp-content/uploads/2023/03/415-C-Programming-PB-scaled.jpg",
+                    ),
+                  ),
 
                   const SizedBox(width: Dimensions.fifTeen,),
                   Expanded(child: Text("যুব উন্নয়ন অধিদপ্তর ড্রাইভিং প্রশিক্ষণযুব উন্নয়ন অধিদপ্তর ড্রাইভিং প্রশিক্ষণ যুব উন্নয়ন অধিদপ্তর ড্রাইভিং প্রশিক্ষণ যুব উন্নয়ন অধিদপ্তর ড্রাইভিং প্রশিক্ষণ  ")),

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'feature/dashbord/view/dashobord_screen.dart';
+import 'feature/appground/view/dashobord_screen.dart';
 
 
 void main() {
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home:DashBoardScreenView(),
+      home:AppGroundScreenView(),
     );
   }
 }
